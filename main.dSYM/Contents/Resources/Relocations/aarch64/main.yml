@@ -1,0 +1,10 @@
+---
+triple:          'arm64-apple-darwin'
+binary-path:     '/Users/matsushima_nanami/calc/main'
+relocations:
+  - { offset: 0x53E2, size: 0x8, addend: 0x0, symName: __ZStL8__ioinit, symObjAddr: 0x28098, symBinAddr: 0x100008000, symSize: 0x0 }
+  - { offset: 0x55AE, size: 0x8, addend: 0x0, symName: _main, symObjAddr: 0x8, symBinAddr: 0x1000038A4, symSize: 0x12C }
+  - { offset: 0x55F6, size: 0x8, addend: 0x0, symName: __ZNSt14numeric_limitsIlE3maxEv, symObjAddr: 0x0, symBinAddr: 0x10000389C, symSize: 0x8 }
+  - { offset: 0x91AE, size: 0x8, addend: 0x0, symName: __ZStL8__ioinit, symObjAddr: 0x28344, symBinAddr: 0x100008001, symSize: 0x0 }
+  - { offset: 0x9307, size: 0x8, addend: 0x0, symName: __ZN4Calc6keisanEv, symObjAddr: 0x8, symBinAddr: 0x100003A20, symSize: 0x1D8 }
+...
