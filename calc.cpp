@@ -3,6 +3,14 @@
 #include "calc.h"
 using namespace std;
 
+Calc::Calc(){
+    
+}
+
+Calc::~Calc(){
+    
+}
+
 void Calc::keisan(){
 
     double result = 0.0;    

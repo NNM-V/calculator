@@ -8,6 +8,8 @@ class Calc{
     char op;
 
     public:
+    Calc();
+    ~Calc();
     void keisan();  
 };
 
