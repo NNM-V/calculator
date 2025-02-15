@@ -9,6 +9,7 @@
                 "-g",
                 "${workspaceFolder}/main.cpp",
                 "${workspaceFolder}/Calc.cpp",
+                "${workspaceFolder}/temp.cpp",
                 "-o",
                 "${workspaceFolder}/main"
             ],
@@ -21,7 +22,6 @@
             "group": "build",
             "detail": "デバッガーによって生成されたタスク。"
         },
-
     ],
     "version": "2.0.0"
 }
