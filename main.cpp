@@ -32,18 +32,7 @@ int main() {
             Calc *pcalc = new Calc;
             pcalc->infixToRPN(v);
             delete pcalc;
-
-            /*
-            string s;
-            getline(cin, s);
-        
-            cout << s << endl;
-            for(int i=0; i<5; i++){
-                cout << "s[" << i << "]:" <<s[i] << endl;
-            }*/
-            //string input = "3 ^ 4 + ( 11 - ( 3 * 2 ) ) / 2";
-            //delete pCalc;
-
+            
             cout<<"アプリを閉じますか(y/n):\n";
             cin>>closeApp;
 
