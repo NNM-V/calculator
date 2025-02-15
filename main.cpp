@@ -1,8 +1,9 @@
 #include <iostream>
 #include <limits>
 #include <vector>
+#include <sstream>
 #include "calc.h"
-#include "temp.h"
+#include "convert_to_infix.h"
 
 using namespace std;
 
@@ -15,11 +16,12 @@ int main() {
             cout << "電卓アプリへようこそ！\n";
             cout << "数値と演算子を入力してください: ";
             
+            //get user input
             getline(cin,input);
-            //cout<<input<<endl;
             stringstream ss(input);
             string token;
             
+            //divide input using space
             while(getline(ss,token,' ')){
                 v.push_back(token);
             }
@@ -29,9 +31,9 @@ int main() {
                 cout << v[i] << endl;
             }
 
-            Calc *pcalc = new Calc;
-            pcalc->infixToRPN(v);
-            delete pcalc;
+            Convert_to_Infix *infix = new Convert_to_Infix;
+            infix->infixToRPN(v);
+            delete infix;
             
             cout<<"アプリを閉じますか(y/n):\n";
             cin>>closeApp;
