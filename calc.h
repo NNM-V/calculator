@@ -3,28 +3,27 @@
 
 #include <iostream>
 #include <sstream>
-#include  <vector>
+#include <vector>
 #include <stack>
-#include <limits>
 
-using namespace std;
+struct OptionInt {
+    bool result;
+    double value;
+};
 
 class Calc{
 
     private:
+    std::vector<std::string> input;
     double num1,num2;
-    char op;
+    std::stack<double> number;
 
     public:
     Calc();
     ~Calc();
-
-    vector<string> infixToRPN(const vector <string>& input);
-    vector<string> splitString(const string& input);
-    bool TryParse(const string &symbol);
-    bool isOperator(const string &c);
-    int Priority(const string &c);
-    void keisan();  
+    OptionInt Calculation(const std::vector<std::string> &rev_polish);
+    bool TryParse(const std::string &symbol);
+    bool isOperator(const std::string &c);
 };
 
 #endif //_CALC_H

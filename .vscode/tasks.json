@@ -9,7 +9,8 @@
                 "-g",
                 "${workspaceFolder}/main.cpp",
                 "${workspaceFolder}/Calc.cpp",
-                "${workspaceFolder}/convert_to_infix.cpp",
+                "${workspaceFolder}/converttoInfix.cpp",
+                "${workspaceFolder}/separator.cpp",
                 "-o",
                 "${workspaceFolder}/main"
             ],
