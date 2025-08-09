@@ -9,7 +9,7 @@
 using namespace std;
 
 int main() {
-    cout << "電卓アプリへようこそ！\n";
+    cout << "Welcome to calculator app！\n";
 
     char closeApp = 'n';
     //continue while user input is "n" or "N"
@@ -17,9 +17,14 @@ int main() {
 
         string input;
         //get user input
-        while(input.empty()){
-            cout << "数値と演算子を入力してください: ";
-            getline(cin,input);  
+        while(true){
+            cout << "Input digit and operator: "<<endl;
+            getline(cin,input);
+            if(input.empty()){
+                cout << "Input digit and operator: "<<endl;
+            }else{
+                break;
+            }
         }
         
         vector<string> space_input;
@@ -37,26 +42,29 @@ int main() {
         }
         
         Calc calc;
- 
-        OptionInt optionint;
-        //set calculation to Calc class and calculate
-        optionint = calc.Calculation(rev_polish);
-        //return to user input in case of error
-        if (optionint.result == false) {
-            continue;
-        }
+
+        calc.Calculation(rev_polish, [](bool success, double value){
+            if (success) {
+                std::cout << "Result:" << value << std::endl;
+            } else {
+                std::cerr << "Calculation failed！" << std::endl;
+            }
+        });
         
-        cout<<"アプリを閉じますか(y/n):";
         //ask user to close the app or not
+        cout<<"Do you want to close the app?(y/n):";
+        //user input
         cin>>closeApp;
 
         //continue to ask for user input when the input is not "y" or "n"
         while (closeApp != 'y' && closeApp != 'n' && closeApp != 'Y' && closeApp != 'N') {
-            cout << "無効な入力です。'y' または 'n' を押してください。\n";
+            cout << "Invalid input。Input 'y' or 'n'\n";
             //clear previous input 
             cin.clear();
             cin.ignore(numeric_limits<streamsize>::max(), '\n');
-            cout << "アプリを閉じますか(y/n):\n";
+            //ask user to close the app or not
+            cout << "Do you want to close the app?(y/n):\n";
+            //user input
             cin >> closeApp;
         }
         cin.ignore(numeric_limits<streamsize>::max(), '\n');

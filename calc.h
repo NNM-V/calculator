@@ -2,14 +2,16 @@
 #define _CALC_H
 
 #include <iostream>
-#include <sstream>
 #include <vector>
 #include <stack>
+#include <functional>
 
+/*
 struct OptionInt {
     bool result;
     double value;
 };
+*/
 
 class Calc{
 
@@ -21,7 +23,8 @@ class Calc{
     public:
     Calc();
     ~Calc();
-    OptionInt Calculation(const std::vector<std::string> &rev_polish);
+    void ResultHandler(bool, double);
+    void Calculation(const std::vector<std::string> &rev_polish, const std::function<void(bool, double)>&callback);
     bool TryParse(const std::string &symbol);
     bool isOperator(const std::string &c);
 };

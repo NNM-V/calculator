@@ -11,12 +11,13 @@ Calc::~Calc(){
     
 }
 
-OptionInt Calc::Calculation(const std::vector<std::string> &rev_polish){
-    for(string token : rev_polish){
+
+void Calc::Calculation(const std::vector<std::string> &rev_polish, const function<void(bool, double)>&callback){
+    for(auto& token : rev_polish){
         if(isOperator(token)){
             if(number.size()<2){
-                cerr<<"数字が足りないまたは無効な入力です"<<endl;
-                return OptionInt{ false, 0 };
+                cerr<<"Not enough digits or invalid input"<<endl;
+                return callback(false, 0);
             }
            
             num1 = number.top();
@@ -34,17 +35,16 @@ OptionInt Calc::Calculation(const std::vector<std::string> &rev_polish){
                 if (num1 != 0){
                     number.push(num2/num1);
                 }else {
-                    cerr<<"無効な入力です"<<endl;
-                    return OptionInt{ false, 0 };
+                    cerr<<"Invalid input"<<endl;
+                    return callback(false, 0);
                 }
             }
         }else if(TryParse(token)){
-            number.push(stoi(token));
+            number.push(stod(token));
         }
     }
-    cout<<"計算結果: "<<number.top()<<endl;
 
-    return OptionInt{true, number.top()};
+    return callback(true, number.top());
 }
 
 bool Calc::TryParse(const string &symbol){

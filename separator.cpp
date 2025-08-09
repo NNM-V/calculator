@@ -27,8 +27,6 @@ vector<string> Separator::addSpace(const string& input){
         oss << input[i];
     }
 
-    //cout << temp << endl;;
-
     stringstream ss(oss.str());
 
     //divide input using space
@@ -37,10 +35,11 @@ vector<string> Separator::addSpace(const string& input){
     }
 
     /*
-    cout << "分割結果:" << endl;
+    cout << "separated output:" << endl;
     for (int i = 0; i < v.size(); i++) {
         cout << v[i] << endl;
-    }*/
-
+    }
+    */
+   
     return v;
 }

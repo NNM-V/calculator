@@ -1,28 +1,26 @@
 {
+    "version": "2.0.0",
     "tasks": [
         {
-            "type": "cppbuild",
-            "label": "C/C++: g++ アクティブなファイルのビルド",
-            "command": "/usr/local/bin/g++",
+            "type": "shell",
+            "label": "make",
+            "command": "make",
             "args": [
-                "-fdiagnostics-color=always",
+                 "-fdiagnostics-color=always",
                 "-g",
                 "${workspaceFolder}/main.cpp",
-                "${workspaceFolder}/Calc.cpp",
-                "${workspaceFolder}/converttoInfix.cpp",
+                "${workspaceFolder}/calc.cpp",
+                "${workspaceFolder}/convertInfix.cpp",
                 "${workspaceFolder}/separator.cpp",
                 "-o",
                 "${workspaceFolder}/main"
             ],
             "options": {
-                "cwd": "${fileDirname}"
+                "cwd": "${workspaceFolder}", 
             },
             "problemMatcher": [
                 "$gcc"
             ],
-            "group": "build",
-            "detail": "デバッガーによって生成されたタスク。"
-        },
-    ],
-    "version": "2.0.0"
+        }
+    ]
 }

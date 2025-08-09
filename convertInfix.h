@@ -17,7 +17,7 @@ class convertInfix{
     convertInfix();
     ~convertInfix();
     std::vector<std::string> infixToRPN(const std::vector<std::string>& input);
-    bool TryParse(const std::string & symbol);
+    bool isDigit(const std::string & symbol);
     bool isOperator(const std::string & c);
     int Priority(const std::string & c);
 };

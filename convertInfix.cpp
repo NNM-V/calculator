@@ -11,9 +11,9 @@ convertInfix::~convertInfix(){
 
 //convert infix notation to reverse polish
 vector<string> convertInfix::infixToRPN(const vector<string>& input){
-    for(string token : input){
+    for(auto token : input){
         //check if it is number
-        if (TryParse(token)){
+        if (isDigit(token)){
             //push if it is number
             output.push_back(token);
         }else if(token == "("){
@@ -39,7 +39,7 @@ vector<string> convertInfix::infixToRPN(const vector<string>& input){
             }
             op.push(token);
         }else{
-            cerr<<"無効な入力です。計算を正しく入力してください。"<<endl;
+            cerr<<"Invalid input."<<endl;
             return {};
         }
     }
@@ -51,12 +51,13 @@ vector<string> convertInfix::infixToRPN(const vector<string>& input){
         op.pop();
     }
 
-    
-    cout << "逆ポーランド表記:" << endl;
-    for(string rev_str : output)
+    /*
+    cout << "reverse polish output:" << endl;
+    for(auto& rev_str : output)
     {
         cout<<rev_str<<endl;
     }
+    */
 
     //if the operation before and after left parentheses are "-", pop them and pushback "+"
     for (int i = 0; i < output.size(); i++) {
@@ -70,20 +71,22 @@ vector<string> convertInfix::infixToRPN(const vector<string>& input){
         }
     }
 
-    cout << "アジャスト表記:" << endl;
-    for(string adj_str : adjustedOutput)
+    /*
+    cout << "adjusted output:" << endl;
+    for(auto& adj_str : adjustedOutput)
     {
         cout<<adj_str<<endl;
     }
+    */
 
     return adjustedOutput;
 }
 
-bool convertInfix::TryParse(const string &symbol){
+bool convertInfix::isDigit(const string &symbol){
     bool isNumber = false;
-    for(unsigned int i = 0; i < symbol.size(); i++)
+    for(auto& s : symbol)
     {
-        if(!isdigit(symbol[i]))
+        if(!isdigit(s))
         {
             isNumber = false;
         }
@@ -100,7 +103,16 @@ bool convertInfix::isOperator(const string &c){
 }
 
 int convertInfix::Priority(const string &c){
-    if(c == "*" || c == "/")return 2;
-    if(c == "+" || c == "-")return 1;
-    return 0;
+    if(c == "^"){
+        return 3;
+    }
+    if(c == "*" || c == "/")
+    {
+        return 2;
+    }else if(c == "+" || c == "-")
+    {
+        return 1;
+    }else{
+        return 0;
+    }
 }

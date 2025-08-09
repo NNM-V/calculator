@@ -51,6 +51,7 @@
         "typeinfo": "cpp",
         "variant": "cpp",
         "sstream": "cpp",
-        "algorithm": "cpp"
+        "algorithm": "cpp",
+        "memory": "cpp"
     }
 }
