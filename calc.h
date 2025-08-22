@@ -26,7 +26,7 @@ class Calc{
     void ResultHandler(bool, double);
     void Calculation(const std::vector<std::string> &rev_polish, const std::function<void(bool, double)>&callback);
     bool TryParse(const std::string &symbol);
-    bool isOperator(const std::string &c){
+    inline bool isOperator(const std::string &c){
         return(c == "+" || c == "-" || c == "*" || c == "/");
     }
 };

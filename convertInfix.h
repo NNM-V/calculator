@@ -18,7 +18,7 @@ class convertInfix{
     ~convertInfix();
     std::vector<std::string> infixToRPN(const std::vector<std::string>& input);
     bool isDigit(const std::string & symbol);
-    bool isOperator(const std::string &c){
+    inline bool isOperator(const std::string &c){
         return(c == "+" || c == "-" || c == "*" || c == "/");
     }
     int Priority(const std::string & c);
