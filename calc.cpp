@@ -63,7 +63,3 @@ bool Calc::TryParse(const string &symbol){
 
     return isNumber;
 }
-
-bool Calc::isOperator(const string &c){
-    return(c == "+" || c == "-" || c == "*" || c == "/");
-}

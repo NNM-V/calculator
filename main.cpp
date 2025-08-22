@@ -9,7 +9,7 @@
 using namespace std;
 
 int main() {
-    cout << "Welcome to calculator app！\n";
+    cout << "Welcome to calculator app!\n";
 
     char closeApp = 'n';
     //continue while user input is "n" or "N"
@@ -47,7 +47,7 @@ int main() {
             if (success) {
                 std::cout << "Result:" << value << std::endl;
             } else {
-                std::cerr << "Calculation failed！" << std::endl;
+                std::cerr << "Calculation failed!" << std::endl;
             }
         });
         

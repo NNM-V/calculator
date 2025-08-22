@@ -98,10 +98,6 @@ bool convertInfix::isDigit(const string &symbol){
     return isNumber;
 }
 
-bool convertInfix::isOperator(const string &c){
-    return(c == "+" || c == "-" || c == "*" || c == "/");
-}
-
 int convertInfix::Priority(const string &c){
     if(c == "^"){
         return 3;
