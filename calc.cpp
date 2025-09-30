@@ -1,20 +1,14 @@
 
 #include "calc.h"
+#include "utility.h"
 
 using namespace std;
 
-Calc::Calc() : num1(0.0), num2(0.0) {
-}
-
-
-Calc::~Calc(){
-    
-}
-
-
 void Calc::Calculation(const std::vector<std::string> &rev_polish, const function<void(bool, double)>&callback){
+    Utility utility;
+
     for(auto& token : rev_polish){
-        if(isOperator(token)){
+        if(utility.isOperator(token)){
             if(number.size()<2){
                 cerr<<"Not enough digits or invalid input"<<endl;
                 return callback(false, 0);
@@ -39,27 +33,10 @@ void Calc::Calculation(const std::vector<std::string> &rev_polish, const functio
                     return callback(false, 0);
                 }
             }
-        }else if(TryParse(token)){
+        }else if(utility.TryParse(token)){
             number.push(stod(token));
         }
     }
 
     return callback(true, number.top());
-}
-
-bool Calc::TryParse(const string &symbol){
-    bool isNumber = false;
-    for(char c: symbol)
-    {
-        if(!isdigit(c))
-        {
-            isNumber = false;
-        }
-        else
-        {
-            isNumber = true;
-        }
-    }
-
-    return isNumber;
 }

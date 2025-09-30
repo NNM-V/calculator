@@ -12,9 +12,8 @@ int main() {
     cout << "Welcome to calculator app!\n";
 
     char closeApp = 'n';
-    //continue while user input is "n" or "N"
-    while (closeApp == 'n' || closeApp == 'N') {
-
+    //continue while user input is "n"
+    while (true) {
         string input;
         //get user input
         while(true){
@@ -55,19 +54,24 @@ int main() {
         cout<<"Do you want to close the app?(y/n):";
         //user input
         cin>>closeApp;
+        closeApp=tolower(closeApp);
 
         //continue to ask for user input when the input is not "y" or "n"
-        while (closeApp != 'y' && closeApp != 'n' && closeApp != 'Y' && closeApp != 'N') {
+        while (closeApp != 'y' && closeApp != 'n') {
             cout << "Invalid input。Input 'y' or 'n'\n";
+            //ask user to close the app or not
+            cout << "Do you want to close the app?(y/n):\n";
             //clear previous input 
             cin.clear();
             cin.ignore(numeric_limits<streamsize>::max(), '\n');
-            //ask user to close the app or not
-            cout << "Do you want to close the app?(y/n):\n";
             //user input
             cin >> closeApp;
         }
         cin.ignore(numeric_limits<streamsize>::max(), '\n');
+
+        if(closeApp == 'y'){
+            break;
+        }
     }
     return 0;
 }

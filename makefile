@@ -3,7 +3,7 @@ CXXFLAGS = -std=c++17 -Wall -g
 
 Target = main
 
-SRCS = SRCS = main.cpp convertInfix.cpp Calc.cpp Separator.cpp
+SRCS = SRCS = main.cpp convertInfix.cpp Calc.cpp Separator.cpp Utility.cpp
 
 OBJS    = $(SRCS:.cpp=.o)
 

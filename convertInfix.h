@@ -14,10 +14,10 @@ class convertInfix{
     std::vector<std::string> adjustedOutput;
 
     public:
-    convertInfix();
-    ~convertInfix();
+    convertInfix(){}
+    ~convertInfix(){}
+
     std::vector<std::string> infixToRPN(const std::vector<std::string>& input);
-    bool isDigit(const std::string & symbol);
     inline bool isOperator(const std::string &c){
         return(c == "+" || c == "-" || c == "*" || c == "/");
     }

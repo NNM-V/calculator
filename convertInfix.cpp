@@ -1,19 +1,14 @@
 #include "convertInfix.h"
+#include "utility.h"
 
 using namespace std;
 
-convertInfix::convertInfix(){
-}
-
-convertInfix::~convertInfix(){
-
-}
-
 //convert infix notation to reverse polish
 vector<string> convertInfix::infixToRPN(const vector<string>& input){
+    Utility utility;
     for(auto token : input){
         //check if it is number
-        if (isDigit(token)){
+        if (utility.TryParse(token)){
             //push if it is number
             output.push_back(token);
         }else if(token == "("){
@@ -30,7 +25,7 @@ vector<string> convertInfix::infixToRPN(const vector<string>& input){
             }
             //pop parentheses from op
             op.pop();
-        }else if(isOperator(token) == true){
+        }else if(utility.isOperator(token) == true){
             //check if it is operator
             //check priority of operation and push to output
             while(!op.empty() && Priority(op.top()) >= Priority(token)){
@@ -51,13 +46,13 @@ vector<string> convertInfix::infixToRPN(const vector<string>& input){
         op.pop();
     }
 
-    /*
+    
     cout << "reverse polish output:" << endl;
     for(auto& rev_str : output)
     {
         cout<<rev_str<<endl;
     }
-    */
+    
 
     //if the operation before and after left parentheses are "-", pop them and pushback "+"
     for (int i = 0; i < output.size(); i++) {
@@ -71,31 +66,15 @@ vector<string> convertInfix::infixToRPN(const vector<string>& input){
         }
     }
 
-    /*
+    
     cout << "adjusted output:" << endl;
     for(auto& adj_str : adjustedOutput)
     {
         cout<<adj_str<<endl;
     }
-    */
+    
 
     return adjustedOutput;
-}
-
-bool convertInfix::isDigit(const string &symbol){
-    bool isNumber = false;
-    for(auto& s : symbol)
-    {
-        if(!isdigit(s))
-        {
-            isNumber = false;
-        }
-        else
-        {
-            isNumber = true;
-        }
-    }
-    return isNumber;
 }
 
 int convertInfix::Priority(const string &c){

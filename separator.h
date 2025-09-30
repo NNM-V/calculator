@@ -15,8 +15,12 @@ class Separator{
 
 
     public:
-    Separator();
-    ~Separator();
+    Separator() {
+        oss.str(""); 
+        oss.clear();
+    }
+    ~Separator(){}
+    
     std::vector<std::string> addSpace(const std::string& input);
 };
 
