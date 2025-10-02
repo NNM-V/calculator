@@ -2,8 +2,7 @@
 #define _CONVERTINFIX_H
 
 #include <iostream>
-#include <sstream>
-#include  <vector>
+#include <vector>
 #include <stack>
 
 class convertInfix{

@@ -46,13 +46,14 @@ vector<string> convertInfix::infixToRPN(const vector<string>& input){
         op.pop();
     }
 
-    
+    /*
+    //test output
     cout << "reverse polish output:" << endl;
     for(auto& rev_str : output)
     {
         cout<<rev_str<<endl;
     }
-    
+    */
 
     //if the operation before and after left parentheses are "-", pop them and pushback "+"
     for (int i = 0; i < output.size(); i++) {
@@ -66,13 +67,14 @@ vector<string> convertInfix::infixToRPN(const vector<string>& input){
         }
     }
 
-    
+    /*
+    //test output
     cout << "adjusted output:" << endl;
     for(auto& adj_str : adjustedOutput)
     {
         cout<<adj_str<<endl;
     }
-    
+    */
 
     return adjustedOutput;
 }

@@ -7,7 +7,6 @@
 #include <functional>
 
 class Calc{
-
     private:
     std::vector<std::string> input;
     double num1,num2;

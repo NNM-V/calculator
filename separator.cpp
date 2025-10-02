@@ -14,7 +14,7 @@ vector<string> Separator::addSpace(const string& input){
                 //add space if there is non-digit in front of number 
                 oss << " ";
             }
-        }    
+        }
         oss << input[i];
     }
 
@@ -25,12 +25,13 @@ vector<string> Separator::addSpace(const string& input){
         v.push_back(token);
     }
 
-    
+    /*
+    //test output
     cout << "separated output:" << endl;
     for (int i = 0; i < v.size(); i++) {
         cout << v[i] << endl;
     }
-
+    */
    
     return v;
 }

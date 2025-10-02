@@ -1,17 +1,16 @@
 #include <iostream>
-#include <limits>
 #include <vector>
-#include <sstream>
+
 #include "calc.h"
 #include "convertInfix.h"
 #include "separator.h"
+#include "yesno.h"
 
 using namespace std;
 
 int main() {
     cout << "Welcome to calculator app!\n";
 
-    char closeApp = 'n';
     //continue while user input is "n"
     while (true) {
         string input;
@@ -26,22 +25,21 @@ int main() {
             }
         }
         
-        vector<string> space_input;
         Separator sep;
         //add space between number and operation
-        space_input = sep.addSpace(input);
-        
-        vector<string> rev_polish;
+        vector<string> space_input = sep.addSpace(input);
+           
         convertInfix cinfix;
         //convert user input to reverse polish from infix notation
-        rev_polish = cinfix.infixToRPN(space_input);
+        vector<string> rev_polish = cinfix.infixToRPN(space_input);
+        
         //return to user input in case of error
         if(rev_polish.empty()){
             continue;
         }
         
         Calc calc;
-
+        //get calculation result from calc class
         calc.Calculation(rev_polish, [](bool success, double value){
             if (success) {
                 std::cout << "Result:" << value << std::endl;
@@ -50,28 +48,15 @@ int main() {
             }
         });
         
-        //ask user to close the app or not
-        cout<<"Do you want to close the app?(y/n):";
-        //user input
-        cin>>closeApp;
-        closeApp=tolower(closeApp);
-
-        //continue to ask for user input when the input is not "y" or "n"
-        while (closeApp != 'y' && closeApp != 'n') {
-            cout << "Invalid input。Input 'y' or 'n'\n";
-            //ask user to close the app or not
-            cout << "Do you want to close the app?(y/n):\n";
-            //clear previous input 
-            cin.clear();
-            cin.ignore(numeric_limits<streamsize>::max(), '\n');
-            //user input
-            cin >> closeApp;
-        }
-        cin.ignore(numeric_limits<streamsize>::max(), '\n');
-
-        if(closeApp == 'y'){
+        //ask user to continue the app 
+        YesNo yn("Do you want to close the app?(y/n):");
+        char closeApp = yn.cont();
+        if(closeApp == 'n'){
+            continue;;
+        }else if(closeApp == 'y'){
             break;
         }
     }
+    
     return 0;
 }

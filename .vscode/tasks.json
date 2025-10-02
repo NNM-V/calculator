@@ -2,25 +2,31 @@
     "version": "2.0.0",
     "tasks": [
         {
-            "type": "shell",
-            "label": "make",
-            "command": "make",
+            "type": "cppbuild",
+            "label": "build game",
+            "command": "/usr/bin/g++",
             "args": [
-                 "-fdiagnostics-color=always",
+                "-std=c++17",
+                "-fcolor-diagnostics",
+                "-fansi-escape-codes",
                 "-g",
-                "${workspaceFolder}/main.cpp",
-                "${workspaceFolder}/calc.cpp",
-                "${workspaceFolder}/convertInfix.cpp",
-                "${workspaceFolder}/separator.cpp",
+                "main.cpp",
+                "calc.cpp",
+                "convertInfix.cpp",
+                "separator.cpp",
+                "utility.cpp",
+                "yesno.cpp",
                 "-o",
                 "${workspaceFolder}/main"
             ],
             "options": {
-                "cwd": "${workspaceFolder}", 
+                "cwd": "${fileDirname}"
             },
-            "problemMatcher": [
-                "$gcc"
-            ],
+            "problemMatcher": ["$gcc"],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
         }
     ]
 }
