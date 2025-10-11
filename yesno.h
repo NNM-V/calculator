@@ -2,15 +2,15 @@
 #define _YEESNO_H
 
 #include <iostream>
+#include <vector>
+#include <algorithm>
 
 class YesNo{
-    char input;
-    std::string message;
     public:
-        YesNo(const std::string& msg):message(msg){}
+        YesNo(){}
         ~YesNo(){}
 
-    char cont();
+        std::string cont(const std::string& message, const std::vector<std::string>& valid_string);
 };
 
 #endif //_YEESNO_H

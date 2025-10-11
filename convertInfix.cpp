@@ -6,6 +6,10 @@ using namespace std;
 //convert infix notation to reverse polish
 vector<string> convertInfix::infixToRPN(const vector<string>& input){
     Utility utility;
+    vector<std::string> output;
+    stack<std::string> op;
+    vector<std::string> adjustedOutput;
+
     for(auto token : input){
         //check if it is number
         if (utility.TryParse(token)){

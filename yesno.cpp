@@ -3,23 +3,19 @@
 
 using namespace std;
 
-char YesNo::cont(){
+string YesNo::cont(const std::string& message, const std::vector<std::string>& valid_string){
     cout<<message<<endl;
-    //user input
-    cin >> input;
-    input = tolower(input);
 
-    //continue to ask for user input when the input is not "y" or "n"
-    while (input != 'y' && input != 'n') {
-        cout << "Invalid input。Input 'y' or 'n'\n";
-        //clear previous input 
-        cin.clear();
-        cin.ignore(numeric_limits<streamsize>::max(), '\n');
-        //user input
-        cin >> input;
-        input = tolower(input);
+    string input;
+    while(true){
+        getline(cin,input);
+        auto it = std::find(valid_string.begin(), valid_string.end(), input);
+        if(input.empty()){
+            cout<<"Empty Input"<<endl;
+        }else if(it == valid_string.end()){
+            cout<<"Unexpected input/無効な入力です"<<endl;
+        }else{
+            return input;
+        }
     }
-    cin.ignore(numeric_limits<streamsize>::max(), '\n');
-
-    return input;
 }

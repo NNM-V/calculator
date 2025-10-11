@@ -19,7 +19,7 @@ int main() {
             cout << "Input digit and operator: "<<endl;
             getline(cin,input);
             if(input.empty()){
-                cout << "Input digit and operator: "<<endl;
+                cout << "Empty Input"<<endl;
             }else{
                 break;
             }
@@ -49,11 +49,11 @@ int main() {
         });
         
         //ask user to continue the app 
-        YesNo yn("Do you want to close the app?(y/n):");
-        char closeApp = yn.cont();
-        if(closeApp == 'n'){
-            continue;;
-        }else if(closeApp == 'y'){
+        YesNo yn;
+        string closeApp = yn.cont("Do you want to close the app?(y/n):",{"y","n"});
+        if(closeApp == "n"){
+            continue;
+        }else if(closeApp == "y"){
             break;
         }
     }

@@ -5,11 +5,11 @@
 
 class Utility{
     public:
-    Utility(){}
-    ~Utility(){}
+        Utility(){}
+        ~Utility(){}
     
-    bool TryParse(const std::string &symbol);
-    bool isOperator(const std::string &c);
+        bool TryParse(const std::string &symbol);
+        bool isOperator(const std::string &c);
 };
 
 #endif //_UTILITY_H
