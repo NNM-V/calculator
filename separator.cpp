@@ -4,9 +4,6 @@ using namespace std;
 
 vector<string> Separator::addSpace(const string& input){  
     ostringstream oss;
-    vector<std::string> v;
-    string token;
-
     //add space between string
     for (int i = 0; i < input.size(); ++i) {
         //process to not add 0 in front of the first number
@@ -21,9 +18,10 @@ vector<string> Separator::addSpace(const string& input){
         }
         oss << input[i];
     }
-
     stringstream ss(oss.str());
 
+    vector<std::string> v;
+    string token;
     //divide input using space
     while(getline(ss,token,' ')){
         v.push_back(token);

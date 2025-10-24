@@ -5,9 +5,9 @@ using namespace std;
 
 string YesNo::cont(const std::string& message, const std::vector<std::string>& valid_string){
     cout<<message<<endl;
-
-    string input;
+    
     while(true){
+        string input;
         getline(cin,input);
         auto it = std::find(valid_string.begin(), valid_string.end(), input);
         if(input.empty()){

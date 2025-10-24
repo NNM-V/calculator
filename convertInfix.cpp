@@ -5,12 +5,11 @@ using namespace std;
 
 //convert infix notation to reverse polish
 vector<string> convertInfix::infixToRPN(const vector<string>& input){
-    Utility utility;
     vector<std::string> output;
     stack<std::string> op;
-    vector<std::string> adjustedOutput;
-
+    
     for(auto token : input){
+        Utility utility;
         //check if it is number
         if (utility.TryParse(token)){
             //push if it is number
@@ -58,6 +57,8 @@ vector<string> convertInfix::infixToRPN(const vector<string>& input){
         cout<<rev_str<<endl;
     }
     */
+
+    vector<std::string> adjustedOutput;
 
     //if the operation before and after left parentheses are "-", pop them and pushback "+"
     for (int i = 0; i < output.size(); i++) {
