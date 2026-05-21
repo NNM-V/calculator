@@ -5,19 +5,17 @@ using namespace std;
 vector<string> Separator::addSpace(const string& input){  
     ostringstream oss;
     //add space between string
-    for (int i = 0; i < input.size(); ++i) {
-        //process to not add 0 in front of the first number
-        if (i > 0){
-            if(!isdigit(input[i]) && input[i]!='.'){
-                //add space if it is not number
-                oss << " ";
-            }else if(!isdigit(input[i-1]) && input[i-1]!='.'){
-                //add space if there is non-digit in front of number 
-                oss << " ";
-            }
+    for (int i = 1; i < input.size(); ++i) {
+        if(!isdigit(input[i]) && input[i]!='.'){
+            //add space if it is not number
+            oss << " ";
+        }else if(!isdigit(input[i-1]) && input[i-1]!='.'){
+            //add space if there is non-digit in front of number 
+            oss << " ";
         }
         oss << input[i];
     }
+    
     stringstream ss(oss.str());
 
     vector<std::string> v;
