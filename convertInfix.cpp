@@ -61,7 +61,7 @@ vector<string> convertInfix::infixToRPN(const vector<string>& input){
     vector<std::string> adjustedOutput;
 
     //if the operation before and after left parentheses are "-", pop them and pushback "+"
-    for (int i = 0; i < output.size(); i++) {
+    for (size_t i = 0; i < output.size(); i++) {
         if (output[i] == "-" && output[i - 1] == "-") {
             //delete "-"
             adjustedOutput.pop_back();  
@@ -72,8 +72,8 @@ vector<string> convertInfix::infixToRPN(const vector<string>& input){
         }
     }
 
-    /*
     //test output
+    /*
     cout << "adjusted output:" << endl;
     for(auto& adj_str : adjustedOutput)
     {

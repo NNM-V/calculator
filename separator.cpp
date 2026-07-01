@@ -5,14 +5,17 @@ using namespace std;
 vector<string> Separator::addSpace(const string& input){  
     ostringstream oss;
     //add space between string
-    for (int i = 1; i < input.size(); ++i) {
-        if(!isdigit(input[i]) && input[i]!='.'){
-            //add space if it is not number
-            oss << " ";
-        }else if(!isdigit(input[i-1]) && input[i-1]!='.'){
-            //add space if there is non-digit in front of number 
-            oss << " ";
+    for (size_t i = 0; i < input.size(); ++i) {
+        if (i > 0){
+            if(!isdigit(input[i]) && input[i]!='.'){
+                //add space if it is not number
+                oss << " ";
+            }else if(!isdigit(input[i-1]) && input[i-1]!='.'){
+                //add space if there is non-digit in front of number 
+                oss << " ";
+            }
         }
+       
         oss << input[i];
     }
     
@@ -25,8 +28,8 @@ vector<string> Separator::addSpace(const string& input){
         v.push_back(token);
     }
 
-    /*
     //test output
+    /*
     cout << "separated output:" << endl;
     for (int i = 0; i < v.size(); i++) {
         cout << v[i] << endl;

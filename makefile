@@ -1,9 +1,9 @@
 CXX = g++
 CXXFLAGS = -std=c++17 -Wall -g
 
-Target = main
+TARGET = main
 
-SRCS = SRCS = main.cpp convertInfix.cpp calc.cpp separator.cpp utility.cpp yesno.cpp
+SRCS = main.cpp convertInfix.cpp calc.cpp separator.cpp utility.cpp yesno.cpp
 
 OBJS    = $(SRCS:.cpp=.o)
 
