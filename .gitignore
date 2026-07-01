@@ -8,3 +8,4 @@ convertInfix.o
 separator.o
 main
 .DS_Store
+main.dSYM/Contents
