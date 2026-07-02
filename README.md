@@ -6,7 +6,7 @@
 </p>
 
 # Calculation Application
-    Calculator that moves on terminal using C++.
+    Calculator that runs in a terminal with C++.
     
 ## Table of Contents
 - About the Project
@@ -16,8 +16,7 @@
 - How to Use
 
 ## About the Project
-Calculator that runs in the terminal with C++.
-Application will handle the four basic arithmetic operations of integer, decimal and fraction with and without brackets using the logic of reverse-polish calculation. 
+Application will supports the four basic arithmetic operations of integer, decimal and fraction with and without brackets using the logic of Reverse Polish Notation (RPN). 
 
 ## Environment
 - c++17
@@ -42,11 +41,11 @@ Application will handle the four basic arithmetic operations of integer, decimal
 ```
 
 ## How to Build (Linux/Mac)
-1.Clone the repository to your local enviroment.
+1.Clone the repository to your local environment.
 
-2.Move to directory that contains the app on terminal.
+2.Move to the project directory on terminal.
 
-3.Build program on your terminal with command below:
+3.Build the program on your terminal with command below:
 ```bash
     make
 ```
