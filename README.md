@@ -6,7 +6,7 @@
 </p>
 
 # Calculation Application
-    Calculator that runs in a terminal with C++.
+Calculator that runs in a terminal with C++.
     
 ## Table of Contents
 - About the Project
