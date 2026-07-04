@@ -42,6 +42,9 @@ Application will supports the four basic arithmetic operations of integer, decim
 
 ## How to Build (Linux/Mac)
 1.Clone the repository to your local environment.
+```bash
+    git clone https://github.com/NNM-V/calculator.git
+```
 
 2.Move to the project directory on terminal.
 
