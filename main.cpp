@@ -40,13 +40,13 @@ int main() {
         
         Calc calc;
         //get calculation result from calc class
-        calc.Calculation(rev_polish, [](bool success, double value){
-            if (success) {
-                std::cout << "Result:" << value << std::endl;
-            } else {
-                std::cerr << "Calculation failed!" << std::endl;
-            }
-        });
+        auto [success, value] = calc.Calculation(rev_polish);
+
+        if (success) {
+            std::cout << "Result:" << value << std::endl;
+        } else {
+            std::cerr << "Calculation failed!" << std::endl;
+        }
         
         //ask user to continue the app 
         YesNo yn;

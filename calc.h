@@ -12,7 +12,7 @@ class Calc{
         ~Calc(){}
 
         void ResultHandler(bool, double);
-        void Calculation(const std::vector<std::string> &rev_polish, const std::function<void(bool, double)>&callback);
+        std::pair<bool, double> Calculation(const std::vector<std::string> &rev_polish);
 };
 
 #endif //_CALC_H

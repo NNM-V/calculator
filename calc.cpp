@@ -4,7 +4,7 @@
 
 using namespace std;
 
-void Calc::Calculation(const std::vector<std::string> &rev_polish, const function<void(bool, double)>&callback){
+pair<bool, double> Calc::Calculation(const std::vector<std::string> &rev_polish){
     std::stack<double> number;
     
     for(auto& token : rev_polish){
@@ -13,7 +13,7 @@ void Calc::Calculation(const std::vector<std::string> &rev_polish, const functio
             double num1,num2;
             if(number.size()<2){
                 cerr<<"Not enough digits or invalid input"<<endl;
-                return callback(false, 0);
+                return {false, 0};
             }
            
             num1 = number.top();
@@ -32,7 +32,7 @@ void Calc::Calculation(const std::vector<std::string> &rev_polish, const functio
                     number.push(num2/num1);
                 }else {
                     cerr<<"Invalid input"<<endl;
-                    return callback(false, 0);
+                    return {false, 0};
                 }
             }
         }else if(utility.TryParse(token)){
@@ -40,5 +40,5 @@ void Calc::Calculation(const std::vector<std::string> &rev_polish, const functio
         }
     }
 
-    return callback(true, number.top());
+    return {true, number.top()};
 }
