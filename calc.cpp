@@ -6,9 +6,9 @@ using namespace std;
 
 pair<bool, double> Calc::Calculation(const std::vector<std::string> &rev_polish){
     std::stack<double> number;
-    
+    Utility utility;
+
     for(auto& token : rev_polish){
-        Utility utility;
         if(utility.isOperator(token)){
             double num1,num2;
             if(number.size()<2){
